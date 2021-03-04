@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title> My Website </title>
+   <link href="style.css" rel="stylesheet"/>
+
+    <meta name="viewport" content="width=device-width">
+ </head>
+
+ <body>
+  <img style="width:45%;" src="https://www.padlockoutlet.com/14966-thickbox_default/1573-master-lock-letter-tm-combination-padlock.jpg">
+</br>
+</br>
+  <input type="text" id="url">
+<!-- </br>
+</br> -->
+  <button type="button" id="redirect">Submit</button>
+
+   <div id="start_over">
+   <a href="start_game.html" class="button">Start Over</a>
+   </div>
+
+</body>
+</html>
+
+<script>
+
+document.getElementById("redirect").addEventListener("click", () => {
+  // get the number from the input field
+  let value = document.getElementById("url").value;
+
+  // construct the url to redirect to using a template string
+
+  if (value.toLowerCase() == "freedom"){
+     window.location = "freedom.html"
+  } else {
+    window.location = "captured.html"
+  }
+
+  // redirect the user to the new location
+  //window.location.href = url;
+
+  console.log(url);
+});
+</script>

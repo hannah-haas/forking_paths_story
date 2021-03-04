@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title> My Website </title>
+   <link href="style.css" rel="stylesheet"/>
+
+    <meta name="viewport" content="width=device-width">
+ </head>
+
+ <div class="timer_div">
+   <span id="timer"></span>
+ </div>
+
+ <body>
+   <p> Yes! The gate opens! You quickly run through and slam it shut. Moments
+     later you hear Madden pounding on the gate, attempting to knock it down.
+     You look around and there doesn't seem to be anywhere to go. What should you
+     do? Hurry! You don't have much time before Madden gets through!
+   </p>
+   <a href="captured.html" class="button"> Keep looking for an escape </a>
+   <a class="button" id="hiding"> Hide in the bushes </a>
+   <a class="button" id="emergency"> Open the emergency capsule </a>
+ </br>
+  <p id="hiding_div"> Hiding... </p>
+   <img src="https://i5.walmartimages.com/asr/d2f6b497-288b-4f1e-b013-67c581e03272_1.9955ac50ccc4ed87d661eb4f1e98fcaa.jpeg" id="padlock">
+
+  </br>
+  <input type="text" id="url2">
+  <button type="button" id="redirect2"> Submit</button>
+
+   <div id="start_over">
+   <a href="start_game.html" class="button">Start Over</a>
+   </div>
+
+</body>
+</html>
+
+<script>
+
+var count= 60;
+
+console.log(count)
+
+var counter=setInterval(timer, 1000); //1000 will  run it every 1 second
+
+function timer(){
+  count=count-1;
+  if (count <= 0){
+     window.location = "captured.html";
+  }
+
+  str = count.toString() + " secs"
+
+ document.getElementById("timer").innerHTML=str;
+}
+
+
+document.getElementById("redirect2").addEventListener("click", () => {
+  // get the number from the input field
+  let value = document.getElementById("url2").value;
+
+  // construct the url to redirect to using a template string
+  console.log(value.toLowerCase())
+  if (value.toLowerCase() == "w1854"){
+     window.location = "shooting.html"
+  } else {
+    window.location = "captured.html"
+  }
+});
+
+document.getElementById("emergency").addEventListener("click", () => {
+  // get the number from the input field
+   document.getElementById("padlock").style.visibility = "visible"
+   document.getElementById("url2").style.visibility = "visible"
+   document.getElementById("redirect2").style.visibility = "visible"
+   document.getElementById("hiding_div").style.visibility = "hidden"
+
+});
+
+document.getElementById("hiding").addEventListener("click", () => {
+  // get the number from the input field
+   document.getElementById("padlock").style.visibility = "hidden"
+   document.getElementById("url2").style.visibility = "hidden"
+   document.getElementById("redirect2").style.visibility = "hidden"
+   document.getElementById("hiding_div").style.visibility = "visible"
+
+});
+
+
+</script>
